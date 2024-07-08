@@ -75,7 +75,6 @@
         </div>
         }
       </div>
-      @if(action == 'add') {
       <div class="col-6 pt-3">
         <label for="stock" class="form-label mb-2"> Stock  </label>
         <input
@@ -98,27 +97,26 @@
         </div>
         }
       </div>
-      }
     </div>
     @if(action == 'add') {
     <div class="col-6 pt-3">
-      <label for="categoryName" class="form-label mb-2"> Category </label>
+      <label for="categoryId" class="form-label mb-2"> Category </label>
       <input
-        #category="ngModel"
+        #categoryId="ngModel"
         type="text"
         class="form-control"
-        id="categoryName"
-        name="categoryName"
+        id="categoryId"
+        name="categoryId"
         placeholder="Kitchen"
-        [(ngModel)]="product.category"
+        [(ngModel)]="category.id"
         [ngClass]="{
-          'is-invalid': category.invalid && category.touched,
-          'is-valid': category.valid && category.touched
+          'is-invalid': categoryId.invalid && categoryId.touched,
+          'is-valid': categoryId.valid && categoryId.touched
         }"
         required
       />
-      @if (category.invalid) {
-      <div *ngIf="category.invalid" class="invalid-feedback">
+      @if (categoryId.invalid) {
+      <div *ngIf="categoryId.invalid" class="invalid-feedback">
         Please add a valid stock amount
       </div>
       }

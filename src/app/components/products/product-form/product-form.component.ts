@@ -4,6 +4,7 @@ import {
   IFeedBackMessage,
   IProduct,
   IFeedbackStatus,
+  ICategory,
 } from "../../../interfaces";
 import { CommonModule } from "@angular/common";
 import { FormsModule, NgForm } from "@angular/forms";
@@ -17,12 +18,8 @@ import { FormsModule, NgForm } from "@angular/forms";
 })
 export class ProductFormComponent {
   @Input() title!: string;
-  @Input() product: IProduct = {
-    description: "",
-    price: 0,
-    stock: 0,
-    name: "",
-  };
+  @Input() product: IProduct = {  };
+  @Input() category: ICategory = {  };
   @Input() action: string = "add";
   service = inject(ProductsService);
   feedbackMessage: IFeedBackMessage = {
@@ -37,6 +34,7 @@ export class ProductFormComponent {
       });
       return;
     } else {
+      this.product.category = this.category;
       this.service[
         this.action == "add" ? "saveProductSignal" : "updateProductSignal"
       ](this.product).subscribe({
