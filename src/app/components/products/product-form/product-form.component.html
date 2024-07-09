@@ -98,16 +98,15 @@
         }
       </div>
     </div>
-    @if(action == 'add') {
     <div class="col-6 pt-3">
-      <label for="categoryId" class="form-label mb-2"> Category </label>
+      <label for="categoryId" class="form-label mb-1"> Category </label>
       <input
         #categoryId="ngModel"
         type="text"
         class="form-control"
         id="categoryId"
         name="categoryId"
-        placeholder="Kitchen"
+        placeholder="To confirm changes, write its category"
         [(ngModel)]="category.id"
         [ngClass]="{
           'is-invalid': categoryId.invalid && categoryId.touched,
@@ -121,7 +120,6 @@
       </div>
       }
     </div>
-    }
   </div>
   <div class="pb-3 mb-3 d-flex justify-content-center align-items-center">
     <button type="submit" class="btn btn-primary d-flex align-items-center">
